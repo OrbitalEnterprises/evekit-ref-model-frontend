@@ -1,18 +1,16 @@
 package enterprises.orbital.evekit.frontend;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.ws.rs.core.Application;
-
 import enterprises.orbital.base.OrbitalProperties;
 import enterprises.orbital.base.PersistentProperty;
 import enterprises.orbital.db.DBPropertyProvider;
-import enterprises.orbital.evekit.ws.calls.ModelCallsWS;
 import enterprises.orbital.evekit.ws.eve.ModelEveWS;
 import enterprises.orbital.evekit.ws.map.ModelMapWS;
 import enterprises.orbital.evekit.ws.server.ModelServerWS;
+
+import javax.ws.rs.core.Application;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ModelReferenceApplication extends Application {
   // Property which holds the name of the persistence unit for properties
@@ -32,7 +30,6 @@ public class ModelReferenceApplication extends Application {
     Set<Class<?>> resources = new HashSet<Class<?>>();
     // Model API resources
     resources.add(ModelServerWS.class);
-    resources.add(ModelCallsWS.class);
     resources.add(ModelEveWS.class);
     resources.add(ModelMapWS.class);
     // Swagger additions
